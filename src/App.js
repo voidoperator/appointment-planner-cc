@@ -12,23 +12,23 @@ function App() {
     APPOINTMENTS: "/appointments",
   };
 
-  const handleNewContact = (name, phoneNumber, address) => {
+  const handleNewContact = (name, phone, email) => {
     const newContact = {
       name: name,
-      phoneNumber: phoneNumber,
-      address: address,
+      phone: phone,
+      email: email,
     };
     setContacts((prevContacts) => {
       return [...prevContacts, newContact];
     });
   };
 
-  const handleNewAppointment = (title, contact, date, phoneNumber, email) => {
+  const handleNewAppointment = (title, contact, date, phone, email) => {
     const newAppointment = {
       title: title,
       contact: contact,
       date: date,
-      phoneNumber: phoneNumber,
+      phone: phone,
       email: email,
     };
     setAppointments((prevAppointments) => {

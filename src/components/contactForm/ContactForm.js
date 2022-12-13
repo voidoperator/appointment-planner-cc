@@ -11,7 +11,7 @@ export const ContactForm = ({
 }) => {
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={(e) => handleSubmit(e)}>
       <label htmlFor="nameInput">Name</label>
       <input
       value={name}
