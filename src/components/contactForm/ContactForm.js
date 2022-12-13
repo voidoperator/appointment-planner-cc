@@ -18,6 +18,7 @@ export const ContactForm = ({
       onChange={(e) => setName(e.target.value)}
       type="text"
       id="nameInput"
+      placeholder="First & Last"
       required />
       <label htmlFor="phoneInput">Phone</label>
       <input
@@ -25,6 +26,8 @@ export const ContactForm = ({
       onChange={(e) => setPhone(e.target.value)}
       type="tel"
       id="phoneInput"
+      placeholder="###-###-####"
+      pattern="[1-9][0-9]{2}-[1-9][0-9]{2}-[0-9]{4}"
       required />
       <label htmlFor="emailInput">Email</label>
       <input
@@ -32,6 +35,8 @@ export const ContactForm = ({
       onChange={(e) => setEmail(e.target.value)}
       type="email"
       id="emailInput"
+      placeholder="email@example.com"
+      pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
       required />
       <input type="submit" value="Submit" />
     </form>
