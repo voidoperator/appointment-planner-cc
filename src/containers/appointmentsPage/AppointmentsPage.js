@@ -11,7 +11,7 @@ export const AppointmentsPage = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.handleNewAppointment(currentTitle, currentContact, currentDate, currentTime)
+    props.newAppointment(currentTitle, currentContact, currentDate, currentTime)
     setCurrentTitle('');
     setCurrentDate('');
     setCurrentTime('');
@@ -38,7 +38,7 @@ export const AppointmentsPage = (props) => {
       <hr />
       <section>
         <h2>Appointments</h2>
-        <TileList contacts={props.contacts}/>
+        <TileList contacts={props.appointments}/>
       </section>
     </div>
   );
