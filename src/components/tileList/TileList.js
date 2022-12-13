@@ -10,19 +10,3 @@ export const TileList = (props) => {
     </div>
   );
 };
-
-
-// import React from "react";
-
-// import { Tile } from "../tile/Tile";
-
-// export const TileList = (props) => {
-
-//   const tiles = props.allContacts.map((info, index) => <Tile info={info} key={index} />);
-
-//   return (
-//     <div>
-//       {tiles}
-//     </div>
-//   );
-// };

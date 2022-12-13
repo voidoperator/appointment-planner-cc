@@ -23,13 +23,12 @@ function App() {
     });
   };
 
-  const handleNewAppointment = (title, contact, date, phone, email) => {
+  const handleNewAppointment = (title, contact, date, time) => {
     const newAppointment = {
       title: title,
       contact: contact,
       date: date,
-      phone: phone,
-      email: email,
+      time: time,
     };
     setAppointments((prevAppointments) => {
       return [...prevAppointments, newAppointment];
