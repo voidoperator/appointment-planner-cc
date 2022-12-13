@@ -1,24 +1,40 @@
-import React from "react";
+import { React, useState } from "react";
 import { Switch, Route, Redirect, NavLink } from "react-router-dom";
-
 import { AppointmentsPage } from "./containers/appointmentsPage/AppointmentsPage";
 import { ContactsPage } from "./containers/contactsPage/ContactsPage";
 
 function App() {
-  /*
-  Define state variables for 
-  contacts and appointments 
-  */
+  const [contacts, setContacts] = useState([]);
+  const [appointments, setAppointments] = useState([]);
 
   const ROUTES = {
     CONTACTS: "/contacts",
     APPOINTMENTS: "/appointments",
   };
 
-  /*
-  Implement functions to add data to
-  contacts and appointments
-  */
+  const handleNewContact = (name, phoneNumber, address) => {
+    const newContact = {
+      name: name,
+      phoneNumber: phoneNumber,
+      address: address,
+    };
+    setContacts((prevContacts) => {
+      return [...prevContacts, newContact];
+    });
+  };
+
+  const handleNewAppointment = (title, contact, date, phoneNumber, email) => {
+    const newAppointment = {
+      title: title,
+      contact: contact,
+      date: date,
+      phoneNumber: phoneNumber,
+      email: email,
+    };
+    setAppointments((prevAppointments) => {
+      return [...prevAppointments, newAppointment];
+    });
+  };
 
   return (
     <>
@@ -36,12 +52,14 @@ function App() {
             <Redirect to={ROUTES.CONTACTS} />
           </Route>
           <Route path={ROUTES.CONTACTS}>
-             {/* Add props to ContactsPage */}
-            <ContactsPage />
+            <ContactsPage newContact={handleNewContact} contacts={contacts} />
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
-            {/* Add props to AppointmentsPage */}
-            <AppointmentsPage />
+            <AppointmentsPage
+              newAppointment={handleNewAppointment}
+              contacts={contacts}
+              appointments={appointments}
+            />
           </Route>
         </Switch>
       </main>
